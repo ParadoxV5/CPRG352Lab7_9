@@ -1,0 +1,4 @@
+[submodule "src/MyServlet"]
+	path = src/MyServlet
+	url = https://github.com/ParadoxV5/MyServlet.git
+	branch = dev
