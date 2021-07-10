@@ -1,4 +1,5 @@
 package service.exception;
+
 public class ServiceException extends RuntimeException {
   private static final long serialVersionUID = 0;
   
@@ -12,7 +13,7 @@ public class ServiceException extends RuntimeException {
     this.httpStatusCode = htmlStatusCode;
   }
   
-  public void respond(javax.servlet.http.HttpServletResponse httpServletResponse) {
-    httpServletResponse.setStatus(httpStatusCode);
+  public void respond(javax.servlet.http.HttpServletResponse httpServletResponse) throws java.io.IOException {
+    httpServletResponse.sendError(httpStatusCode);
   }
 }
