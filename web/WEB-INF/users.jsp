@@ -14,7 +14,7 @@
   
   <table>
     <caption><h1>Users</h1></caption>
-    <thead>
+    <thead><tr>
       <th>✍</th>
       <th>🆔 email</th>
       <th>active</th>
@@ -22,7 +22,7 @@
       <th>last_name</th>
       <th>password</th>
       <th>role</th>
-    </thead>
+    </tr></thead>
     <c:forEach var="_user_" items="${users}"><tr>
       <td><input type="radio" name="user index" onclick="existingRadio(this)"></td>
       <td>${_user_.email}</td>
@@ -32,11 +32,11 @@
       <td title="${_user_.password}">🔐</td>
       <td>${_user_.role}</td>
     </tr></c:forEach>
-    <tfoot>
-      <td><input type="radio" name="user index" checked onchange="newRadio()"></td>
-      <td>{new}</td>
-      <td colspan="5"></td>
-    </tfoot>
+    <tfoot><tr>
+      <th><input type="radio" name="user index" checked onchange="newRadio()"></th>
+      <th>{new}</th>
+      <th colspan="5"></th>
+    </tr></tfoot>
   </table>
   
   <form method="POST">
@@ -58,7 +58,7 @@
     
     <div>
       <input type="submit" id="new" name="action" value="Create">
-      <span id="existing">
+      <span id="existing" style="display: hidden">
         <input type="submit" name="action" value="Update">
         <input type="submit" name="action" value="Delete">
       </span>
