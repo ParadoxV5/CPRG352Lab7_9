@@ -14,6 +14,6 @@ public class ServiceException extends RuntimeException {
   }
   
   public void respond(javax.servlet.http.HttpServletResponse httpServletResponse) throws java.io.IOException {
-    httpServletResponse.sendError(httpStatusCode);
+    httpServletResponse.sendError(httpStatusCode, getCause().toString());
   }
 }

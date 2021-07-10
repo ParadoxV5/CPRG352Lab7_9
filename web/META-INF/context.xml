@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context path="/CPRG352Lab7_9">
+  <!-- You might need to change `url` and add `username` & `password` -->
+  <Resource
+    name="AccessDB"
+    
+    url="jdbc:ucanaccess://C:/Users/ParadoxV5/AppData/Office/SAIT.accdb;showSchema=true"
+    
+    maxActive="4"
+    maxIdle="12"
+    
+    maxWait="60"
+    logAbandoned="true"
+    removeAbandoned="true"
+    removeAbandonedTimeout="60"
+    
+    auth="Container"
+    type="javax.sql.DataSource"
+    driverClassName="net.ucanaccess.jdbc.UcanaccessDriver"
+  />
+</Context>

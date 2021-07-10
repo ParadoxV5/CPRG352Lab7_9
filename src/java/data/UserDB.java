@@ -11,7 +11,7 @@ import static java.util.Objects.requireNonNull;
     preparedStatement.setString (startIndex++, user.getFirst_name());
     preparedStatement.setString (startIndex++, user.getLast_name ());
     preparedStatement.setString (startIndex++, user.getPassword  ());
-    preparedStatement.setString (startIndex, user.getRole().toString());
+    preparedStatement.setString (startIndex, user.getRole().name());
   }
   
   /** C **/
