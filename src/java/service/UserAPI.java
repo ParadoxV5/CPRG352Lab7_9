@@ -14,14 +14,14 @@ public class UserAPI implements java.util.function.Supplier<java.util.LinkedList
   }
   
   //IDEA: Optimize by detecting modified fields and only query those to the API
-  public void post(String method, String email, String active, String first_name, String last_name, String password, String role) throws service.exception.ServiceException {
+  public void post(String action, String email, String active, String first_name, String last_name, String password, String role) throws service.exception.ServiceException {
     boolean isValid = false;
     try {
-      if(method.equalsIgnoreCase("delete")) isValid = database.remove(email); // D
+      if(action.equalsIgnoreCase("delete")) isValid = database.remove(email); // D
       else {
         User user = new User(email, active != null, first_name, last_name, password, model.Role.valueOf(role));
-        if(method.equalsIgnoreCase("create")) isValid = database.add(user); // C
-        else if(method.equalsIgnoreCase("update")) isValid = database.set(user); // U
+        if(action.equalsIgnoreCase("create")) isValid = database.add(user); // C
+        else if(action.equalsIgnoreCase("update")) isValid = database.set(user); // U
       }
     } catch(Throwable cause) { throw new ServerException(cause); }
     if(!isValid) throw new service.exception.ClientException();

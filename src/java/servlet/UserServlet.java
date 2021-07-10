@@ -11,18 +11,16 @@ public class UserServlet extends xyz.paradoxv5.servlet.AbstractServlet {
   
   protected service.UserAPI api;
   protected ServiceException newAPIException;
-  public UserServlet() {
-    super();
-    initialize();
-  }
-  protected void initialize() {
+  @Override public void init() {
     try {
       api = new service.UserAPI();
-      newAPIException = null;
     } catch(ServiceException e) {
       newAPIException = e;
       api = null;
+      return;
     }
+    newAPIException = null;
+    getServletContext().setAttribute("roles", model.Role.values());
   }
   
   protected void doGet0(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -38,7 +36,7 @@ public class UserServlet extends xyz.paradoxv5.servlet.AbstractServlet {
     if(newAPIException != null) newAPIException.respond(response);
     else try {
       api.post(
-        request.getParameter("method"),
+        request.getParameter("action"),
         request.getParameter("email"),
         request.getParameter("active"),
         request.getParameter("first_name"),
