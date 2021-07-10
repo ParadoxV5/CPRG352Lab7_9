@@ -1,6 +1,4 @@
-body {
-  margin: 2.5vw 0;
-}
+body { margin: 2.5vw 0; }
 table, form {
   margin: 0 7.5vw;
   overflow: auto;
@@ -25,4 +23,6 @@ label {
   width: fit-content;
 }
 
-div { margin-top: 2.5em; }
+div {
+  margin-top: 2.5em;
+}
