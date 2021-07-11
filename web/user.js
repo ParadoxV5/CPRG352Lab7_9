@@ -14,7 +14,7 @@ function existingRadio(radio) {
   document.getElementById("first_name").value = tds[3].innerText;
   document.getElementById("last_name").value = tds[4].innerText;
   document.getElementById("password").value = tds[5].title;
-  document.getElementById("role").value = tds[5].innerText;
+  document.getElementById("role").value = tds[6].innerText;
   
   document.getElementById("existing").style.display = null; // Revert hide
 }
