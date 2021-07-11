@@ -1,9 +1,13 @@
 function newRadio() {
-  //TODO
+  document.getElementById("existing").style.display = "none";
+  document.getElementById("new").style.display = null; // Revert
 }
 
 function existingRadio(radio) {
-  //TODO
+  document.getElementById("new").style.display = "none";
+  document.getElementById("existing").style.display = null; // Revert
+  
+  //TODO: radio
 }
 
 document.onload = function() {

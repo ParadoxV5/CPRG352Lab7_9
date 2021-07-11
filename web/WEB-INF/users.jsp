@@ -58,7 +58,7 @@
     
     <div>
       <input type="submit" id="new" name="action" value="Create">
-      <span id="existing" style="display: hidden">
+      <span id="existing" style="display: none">
         <input type="submit" name="action" value="Update">
         <input type="submit" name="action" value="Delete">
       </span>
