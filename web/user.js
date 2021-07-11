@@ -1,11 +1,11 @@
 function newRadio() {
   document.getElementById("existing").style.display = "none";
   document.getElementById("new").style.display = null; // Revert hide
-  document.getElementById("email").disabled = false;
+  document.getElementById("email").readOnly = false;
 }
 
 function existingRadio(radio) {
-  document.getElementById("email").disabled = true;
+  document.getElementById("email").readOnly = true;
   document.getElementById("new").style.display = "none";
   
   var tds = radio.parentElement.parentElement.children; // radio ➡ td ➡ tr ➡ td[]
