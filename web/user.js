@@ -5,3 +5,7 @@ function newRadio() {
 function existingRadio(radio) {
   //TODO
 }
+
+document.onload = function() {
+  document.querySelector("select#role").selectedIndex = -1;
+}

@@ -52,7 +52,7 @@
     <label for="password">password</label>
     <input type="password" id="password" name="password" required>
     <label for="role">role</label>
-    <select id="role" name="role"><c:forEach var="_role_" items="${roles}">
+    <select id="role" name="role" required><c:forEach var="_role_" items="${roles}">
       <option value="${_role_}">${_role_}</option>
     </c:forEach></select>
     
