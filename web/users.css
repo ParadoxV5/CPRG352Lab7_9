@@ -23,6 +23,6 @@ label {
   width: fit-content;
 }
 
-div {
+input[type=submit] {
   margin-top: 2.5em;
 }
