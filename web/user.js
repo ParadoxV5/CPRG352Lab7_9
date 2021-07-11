@@ -18,7 +18,3 @@ function existingRadio(radio) {
   
   document.getElementById("existing").style.display = null; // Revert hide
 }
-
-document.onload = function() {
-  document.querySelector("select#role").selectedIndex = -1;
-}
