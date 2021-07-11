@@ -1,3 +1,12 @@
+/*
+  Font by Jany Belluz, SIL Open Font License:
+  https://github.com/belluzj/fantasque-sans
+*/
+@import url('https://fontlibrary.org/face/fantasque-sans-mono');
+* {
+  font-family: 'Fantasque Sans Mono';
+}
+
 body { margin: 2.5vw 0; }
 table, form {
   margin: 0 7.5vw;
