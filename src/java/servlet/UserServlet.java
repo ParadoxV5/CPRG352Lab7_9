@@ -23,18 +23,24 @@ public class UserServlet extends xyz.paradoxv5.servlet.AbstractServlet {
     getServletContext().setAttribute("roles", model.Role.values());
   }
   
-  protected void doGet0(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    request.setAttribute("users", api.get());
+  @Override protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    if(newAPIException != null) {
+      newAPIException.respond(response);
+      return;
+    }
+    try { request.setAttribute("users", api.get()); }
+    catch(ServiceException e) {
+      e.respond(response);
+      return;
+    }
     forward("/WEB-INF/users.jsp", request, response);
   }
-  @Override protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    if(newAPIException != null) newAPIException.respond(response);
-    else try { doGet0(request, response); }
-    catch(ServiceException e) { e.respond(response); }
-  }
   @Override protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    if(newAPIException != null) newAPIException.respond(response);
-    else try {
+    if(newAPIException != null) {
+      newAPIException.respond(response);
+      return;
+    }
+    try {
       api.post(
         request.getParameter("action"),
         request.getParameter("email"),
@@ -44,7 +50,11 @@ public class UserServlet extends xyz.paradoxv5.servlet.AbstractServlet {
         request.getParameter("password"),
         request.getParameter("role")
       );
-      doGet0(request, response);
-    } catch(ServiceException e) { e.respond(response); }
+      request.setAttribute("users", api.get());
+    } catch(ServiceException e) {
+      e.respond(response);
+      return;
+    }
+    forward("/WEB-INF/users.jsp", request, response);
   }
 }
