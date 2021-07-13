@@ -8,7 +8,7 @@ import javax.persistence.*;
   // Fields and accessors //
   
   // Primary Key
-  @Basic(optional=false) @Id @Column(name="email") private final String email;
+  @Basic(optional=false) @Id @Column(name="email") private String email;
   public String getEmail() { return email; }
   @Override protected String primaryKey() { return email; }
   
@@ -29,6 +29,10 @@ import javax.persistence.*;
   public void setRole(Role role) { this.role = requireNonNull(role); }
   
   // Constructor //
+  public User() {
+    this("", true, "", "", "", Role.REGULAR_USER);
+  }
+  
   public User(String email, boolean active, String first_name, String last_name, String password, Role role) {
     this.email = email;
     setActive(active);
