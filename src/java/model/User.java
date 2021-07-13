@@ -34,7 +34,7 @@ import javax.persistence.*;
   }
   
   public User(String email, boolean active, String first_name, String last_name, String password, Role role) {
-    this.email = email;
+    this.email = requireNonNull(email);
     setActive(active);
     setFirst_name(first_name);
     setLast_name(last_name);
