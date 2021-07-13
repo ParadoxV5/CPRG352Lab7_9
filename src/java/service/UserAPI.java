@@ -21,7 +21,7 @@ public class UserAPI implements java.util.function.Supplier<java.util.Set<User>>
       case "update": database.update(user); break; // U
       case "delete": database.remove(user); break; //D
       default: throw new ClientException();
-    } } catch(javax.persistence.EntityExistsException __) { throw new ClientException(); }
+    } } catch(javax.persistence.EntityExistsException cause) { throw new ClientException(cause); }
         catch(ClientException e) { throw e; } // Ignore and re-throw
         catch(Throwable cause) { throw new ServerException(cause); } // All other exceptions are considered Serverr problems by default
   }
