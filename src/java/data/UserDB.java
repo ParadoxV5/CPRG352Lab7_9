@@ -15,7 +15,7 @@ public class UserDB extends xyz.paradoxv5.servlet.jpa.AbstractEntityDB<User, Str
   }
   
   /** R */
-  @Override public String getAllQlString() { return "SELECT u FROM UserdbUser u"; }
+  @Override public String getAllQlString() { return "SELECT u FROM User u"; }
   
   /** U */
   @Override protected void update0(EntityManager entityManager, User user) {

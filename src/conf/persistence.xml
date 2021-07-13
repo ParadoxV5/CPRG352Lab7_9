@@ -3,7 +3,7 @@
   <persistence-unit name="User" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <non-jta-data-source>java:/comp/env/AccessDB</non-jta-data-source>
-    <class>data.User</class>
+    <class>model.User</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
   </persistence-unit>
 </persistence>
