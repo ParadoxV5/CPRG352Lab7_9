@@ -2,14 +2,13 @@ package model;
 import static java.util.Objects.requireNonNull;
 import javax.persistence.*;
 
-@Entity @Table(name="userdb_user") @javax.xml.bind.annotation.XmlRootElement public class User implements java.io.Serializable {
+@Entity @Table(name="userdb_user") @javax.xml.bind.annotation.XmlRootElement public class User extends xyz.paradoxv5.servlet.jpa.AbstractEntity<String> {
   private static final long serialVersionUID = 0;
   
   // Fields and accessors //
   
   // Primary Key
-  @Basic(optional=false) @Column @Id private final String email;
-  public String getEmail() { return email; }
+  @Basic(optional=false) @Id @Column(name="email") public String getEmail() { return primaryKey; }
   
   @Basic(optional=false) @Column private boolean active = true;
   public boolean isActive() { return active; }
@@ -29,7 +28,7 @@ import javax.persistence.*;
   
   // Constructor //
   public User(String email, boolean active, String first_name, String last_name, String password, Role role) {
-    this.email = email;
+    super(email);
     setActive(active);
     setFirst_name(first_name);
     setLast_name(last_name);
