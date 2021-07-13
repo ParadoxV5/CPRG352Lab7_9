@@ -8,7 +8,9 @@ import javax.persistence.*;
   // Fields and accessors //
   
   // Primary Key
-  @Basic(optional=false) @Id @Column(name="email") public String getEmail() { return primaryKey; }
+  @Basic(optional=false) @Id @Column(name="email") private final String email;
+  public String getEmail() { return email; }
+  @Override protected String primaryKey() { return email; }
   
   @Basic(optional=false) @Column private boolean active = true;
   public boolean isActive() { return active; }
@@ -28,7 +30,7 @@ import javax.persistence.*;
   
   // Constructor //
   public User(String email, boolean active, String first_name, String last_name, String password, Role role) {
-    super(email);
+    this.email = email;
     setActive(active);
     setFirst_name(first_name);
     setLast_name(last_name);
